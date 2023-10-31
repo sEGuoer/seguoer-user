@@ -1,3 +1,14 @@
 spring:
   application:
     name: lms
+my:
+  admin:
+    admin-page-content-map:
+      dashboard :
+        name: 'dashboard'
+        description: "dashboard's description"
+        data : 'dont know'
+      users :
+        name: 'users'
+        description: "users's description"
+        data: 'i dont know'
