@@ -1,6 +1,10 @@
 spring:
   application:
     name: lms
+  security:
+    user:
+      name: 'zcy0052800'
+      password: 'zcy521'
 my:
   admin:
     admin-page-content-map:
