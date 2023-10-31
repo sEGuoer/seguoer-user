@@ -3,7 +3,7 @@ spring:
     name: lms
   security:
     user:
-      name: 'zcy0052800'
+      name: 'zcy0052800@1'
       password: 'zcy521'
 my:
   admin:
