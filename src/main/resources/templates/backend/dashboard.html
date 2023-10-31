@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>后台首页</title>
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="../vendor/adminlte/fonts/fonts.css">
+  <link href="/vendor/adminlte/fonts/fonts.css" th:href="@{../vendor/adminlte/fonts/fonts.css}" rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../vendor/adminlte/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/vendor/adminlte/plugins/fontawesome-free/css/all.min.css" th:href="@{../vendor/adminlte/plugins/fontawesome-free/css/all.min.css}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../vendor/adminlte/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/vendor/adminlte/dist/css/adminlte.min.css" th:href="@{../vendor/adminlte/dist/css/adminlte.min.css}">
 
 </head>
 <body class="hold-transition sidebar-mini">
