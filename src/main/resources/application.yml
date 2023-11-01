@@ -1,10 +1,10 @@
 spring:
   application:
     name: lms
-  security:
-    user:
-      name: 'zcy0052800@1'
-      password: 'zcy521'
+#  security:
+#    user:
+#      name: 'zcy0052800@1'
+#      password: 'zcy521'
 my:
   admin:
     admin-page-content-list:
