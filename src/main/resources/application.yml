@@ -7,12 +7,10 @@ spring:
       password: 'zcy521'
 my:
   admin:
-    admin-page-content-map:
-      dashboard :
-        name: 'dashboard'
+    admin-page-content-list:
+      - name: 'dashboard'
         description: "dashboard's description"
         data : 'dont know'
-      users :
-        name: 'users'
+      - name: 'users'
         description: "users's description"
         data: 'i dont know'

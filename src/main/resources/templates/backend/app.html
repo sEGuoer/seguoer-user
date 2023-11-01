@@ -1,7 +1,5 @@
 <!doctype html>
 <html lang="zh" th:fragment="layout(title, css, main_content)" xmlns:th="http://www.thymeleaf.org">
-<!DOCTYPE html>
-<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,14 +67,9 @@
                     data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item">
-                        <a href="dashboard.html" class="nav-link  active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i> <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="users.html" class="nav-link ">
-                            <i class="nav-icon fas fa-users"></i> <p>Users</p>
+                    <li class="nav-item"  th:each="menu : ${menus}">
+                        <a href="dashboard.html" th:href="${menu.name}" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i> <p th:text="${menu.name}"></p>
                         </a>
                     </li>
                 </ul>
@@ -114,3 +107,4 @@
 
 </body>
 </html>
+
