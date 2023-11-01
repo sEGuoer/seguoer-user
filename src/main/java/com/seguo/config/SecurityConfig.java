@@ -31,6 +31,9 @@ public class SecurityConfig {
                         .deleteCookies("JSESSIONID")
                         .logoutSuccessUrl("/")
                 )
+                .rememberMe(rm -> rm
+                        .rememberMeParameter("remember-me")
+                )
                 .authorizeHttpRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/","/login","/build/**","/vendor/**").permitAll()
                         .requestMatchers("/admin/**").hasAnyAuthority("admin")
