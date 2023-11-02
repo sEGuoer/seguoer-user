@@ -26,7 +26,8 @@ public class UserRepositoryTest {
 
         Optional<User> optionalUser = userRepository.findFirstByName(userName);
         Assertions.assertTrue(optionalUser.isPresent());
-
+        Assertions.assertTrue(userRepository.findAll().contains(user));
         userRepository.delete(user);
+        Assertions.assertFalse(userRepository.findAll().contains(user));
     }
 }
