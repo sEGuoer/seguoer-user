@@ -1,6 +1,11 @@
 spring:
   application:
     name: lms
+  datasource:
+    url: jdbc:mysql://localhost:3306/jpa?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
 #  security:
 #    user:
 #      name: 'zcy0052800@1'
