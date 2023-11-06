@@ -12,6 +12,10 @@ spring:
 #    user:
 #      name: 'zcy0052800@1'
 #      password: 'zcy521'
+  mail:
+    host: localhost
+    port: 1025
+
 my:
   admin:
     admin-page-content-list:

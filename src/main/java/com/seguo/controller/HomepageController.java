@@ -3,7 +3,8 @@ package com.seguo.controller;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,14 +26,11 @@ public class HomepageController {
     String register() {
         return "register";
     }
+    @Autowired
+    private JavaMailSender sender;
     @GetMapping("/send-mail")
     @ResponseBody
     public String send() throws MessagingException, UnsupportedEncodingException {
-
-        JavaMailSenderImpl sender = new JavaMailSenderImpl();
-        sender.setHost("localhost");
-        sender.setPort(1025);
-
         MimeMessage message = sender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
         helper.setFrom(new InternetAddress("admin@example.com", "Admin"));
@@ -42,6 +40,6 @@ public class HomepageController {
 
         sender.send(message);
 
-        return "ok";
+        return "send success";
     }
 }
