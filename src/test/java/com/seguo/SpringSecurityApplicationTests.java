@@ -39,6 +39,8 @@ class SpringSecurityApplicationTests {
                         .param("remember-me", "on")
                 )
                 .andExpect(MockMvcResultMatchers.cookie().exists("remember-me"))
+                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/login?error"))
         ;
     }
 }

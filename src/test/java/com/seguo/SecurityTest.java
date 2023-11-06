@@ -50,7 +50,7 @@ public class SecurityTest extends  WithMockUserBaseTest{
     }
     @Test
     void testAddRepeatUser() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.post("/users")
+        mvc.perform(MockMvcRequestBuilders.post("/user")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("name", "new-name")
                         .param("email", "admin@example.com")
