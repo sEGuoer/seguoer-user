@@ -1,0 +1,40 @@
+<div th:replace="~{ app :: layout ('用户页面', _, ~{::#main_content}) }" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <div class="container" id="main_content">
+      <div id="userInfo" class="row mx-md-5">
+        <div class="col-12 col-md-5">
+          <div class="card text-center" style="width: 18rem;">
+            <img src="img/Cache_247709949bd616a9..jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">用户名</h5>
+              <p class="card-text">个人简介</p>
+              <form action="fileUpload" method="post" enctype="multipart/form-data">
+                <input name="file" type="file">
+                <input class="btn btn-primary" type="submit">
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 col-12">
+          <div class="card m-auto">
+            <div class="card-header">
+              个人资料
+            </div>
+            <div class="card-body">
+              <div>用户名:<span class="ps-5" sec:authentication="name"></span></div>
+              <div>邮&emsp;箱:<span class="ps-5" id="userEmail" sec:authentication="email"></span></div>
+            </div>
+            <div><button class="btn btn-primary" id="addBlogButton">发布一篇博客</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="blog-edit-container" id="addBlog" style="display:none;">
+        <!-- 标题编辑区 -->
+        <div class="title">
+          <input type="text" placeholder="在这里写下文章标题" id="title">
+          <button id="submit">发布文章</button>
+        </div>
+        <!-- 创建编辑器标签 -->
+        <div id="editor"></div>
+      </div>
+  </div>
+</div>

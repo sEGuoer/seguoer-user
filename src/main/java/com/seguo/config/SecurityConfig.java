@@ -24,10 +24,11 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
-//                        .loginProcessingUrl("/verify")
+                        .loginProcessingUrl("/login")
 //                        .failureForwardUrl("/")
                         .usernameParameter("email")
                         .passwordParameter("password")
+                        .defaultSuccessUrl("/user/dashboard")
                 )
                 .logout((logout) -> logout
                         .logoutUrl("/logout")
