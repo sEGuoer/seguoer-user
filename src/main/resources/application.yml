@@ -6,7 +6,7 @@ spring:
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    generate-ddl: true
+#    generate-ddl: true
     show-sql: true
 #  security:
 #    user:

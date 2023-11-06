@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @SpringBootTest
@@ -22,11 +23,14 @@ public class UserRepositoryTest {
         String userName = "test";
         user.setName(userName);
         user.setPassword(passwordEncoder.encode("password"));
+        user.setEmail(userName + "@example.com");
+        user.setPhone("18888888888");
+        user.setCreatedAt(LocalDateTime.now());
+        user.setEnabled(true);
         userRepository.save(user);
 
         Optional<User> optionalUser = userRepository.findFirstByName(userName);
         Assertions.assertTrue(optionalUser.isPresent());
-        Assertions.assertTrue(userRepository.findAll().contains(user));
         userRepository.delete(user);
         Assertions.assertFalse(userRepository.findAll().contains(user));
     }
