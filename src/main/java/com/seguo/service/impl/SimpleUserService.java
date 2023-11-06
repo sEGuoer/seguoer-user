@@ -33,4 +33,9 @@ public class SimpleUserService implements UserService {
             return 0;
         }
     }
+
+    @Override
+    public User findUserByEmail(String email) {
+        return userRepository.findFirstByEmail(email).orElse(null);
+    }
 }
