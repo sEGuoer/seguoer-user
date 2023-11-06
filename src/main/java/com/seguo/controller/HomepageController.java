@@ -13,5 +13,9 @@ public class HomepageController {
     String login() {
         return "login";
     }
+    @GetMapping("register")
+    String register() {
+        return "register";
+    }
 
 }
