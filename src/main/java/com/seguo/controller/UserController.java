@@ -4,13 +4,15 @@ import com.seguo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class UsersController {
+@RequestMapping("/user")
+public class UserController {
     @Autowired
     UserService userService;
-    @PostMapping("/users")
+    @PostMapping
     @ResponseBody
     String addUser(String name, String email, String password) {
             int result = userService.addNewUser(name, email, password);
