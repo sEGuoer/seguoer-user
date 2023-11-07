@@ -10,6 +10,7 @@ import jakarta.mail.MessagingException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -24,6 +25,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Controller
+@Slf4j
 @RequestMapping("/user")
 public class UserController {
     @Autowired
@@ -130,6 +132,10 @@ public class UserController {
         User user = token.getUser();
         user.setPassword(passwordResetDto.getPassword());
         userService.updatePassword(user);
+
+        int expireThisTokenResult = passwordResetTokenService.expireThisToken(passwordResetDto.getToken());
+        log.info("expireThisToken={}, return={}", passwordResetDto.getToken(), expireThisTokenResult);
+
         return "redirect:/login";
     }
 }
