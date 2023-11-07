@@ -23,5 +23,5 @@ my:
         description: "dashboard's description"
         data : 'dont know'
       - name: 'users'
-        description: "users's description"
-        data: 'i dont know'
+        description: "/backend/users"
+        data: 'users'
