@@ -114,4 +114,22 @@ public class UserController {
         return "user/password-reset";
     }
 
+    @PostMapping("do-password-reset")
+    public String resetPassword(@Valid @ModelAttribute("passwordResetDto") PasswordResetDto passwordResetDto,
+                                BindingResult result,
+                                RedirectAttributes attributes) {
+        if (!passwordResetDto.getPassword().equals(passwordResetDto.getConfirmPassword())) {
+            result.rejectValue("password", "error-confirm-password", "两次密码输入不一致");
+        }
+        if(result.hasErrors()){
+            attributes.addFlashAttribute("passwordResetDto", passwordResetDto);
+            return "/user/password-reset";
+        }
+
+        PasswordResetToken token = passwordResetTokenService.findByToken(passwordResetDto.getToken());
+        User user = token.getUser();
+        user.setPassword(passwordResetDto.getPassword());
+        userService.updatePassword(user);
+        return "redirect:/login";
+    }
 }

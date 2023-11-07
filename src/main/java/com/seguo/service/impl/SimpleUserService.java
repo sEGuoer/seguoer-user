@@ -29,7 +29,7 @@ public class SimpleUserService implements UserService {
 
             userRepository.save(user);
             return 1;
-        }else {
+        } else {
             return 0;
         }
     }
@@ -37,5 +37,11 @@ public class SimpleUserService implements UserService {
     @Override
     public User findUserByEmail(String email) {
         return userRepository.findFirstByEmail(email).orElse(null);
+    }
+
+    @Override
+    public void updatePassword(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
     }
 }
