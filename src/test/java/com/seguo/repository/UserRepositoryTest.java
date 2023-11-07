@@ -170,7 +170,7 @@ public class UserRepositoryTest {
                         .param("password", "new-password")
                         .param("confirmPassword", "mismatching-password")
                 )
-                .andExpect(MockMvcResultMatchers.model().attributeHasFieldErrorCode("passwordResetDto", "password", "error-confirm-password"))
+                .andExpect(MockMvcResultMatchers.model().attributeHasFieldErrorCode("passwordResetDto", "confirmPassword", "PasswordMatch"))
         ;
 
         passwordResetTokenRepository.delete(token);
