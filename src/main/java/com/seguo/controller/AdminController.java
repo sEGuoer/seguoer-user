@@ -19,15 +19,8 @@ import java.util.Optional;
 @Controller
 @RequestMapping("admin")
 public class AdminController {
-    @Autowired
-    AdminUseProperties adminUseProperties;
-    @ModelAttribute("menus")
-    List<AdminPageContent> getAdminPageContent(){
-        return adminUseProperties.getAdminPageContentList();
-    }
     @GetMapping("dashboard")
     String index() {
-        System.out.println(adminUseProperties.getAdminPageContentList().toString());
         return "backend/dashboard";
     }
     @Autowired
