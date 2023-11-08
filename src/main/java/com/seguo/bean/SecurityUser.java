@@ -1,8 +1,9 @@
 package com.seguo.bean;
 
-import com.seguo.entity.User;
+
 import com.seguo.entity.Role;
 import com.seguo.entity.Permission;
+import com.seguo.entity.User;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -94,7 +95,4 @@ public class SecurityUser implements UserDetails {
         this.enabled = enabled;
     }
 
-    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
-        this.authorities = authorities;
-    }
 }

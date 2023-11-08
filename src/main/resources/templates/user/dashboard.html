@@ -21,7 +21,7 @@
             </div>
             <div class="card-body">
               <div>用户名:<span class="ps-5" sec:authentication="name"></span></div>
-              <div>邮&emsp;箱:<span class="ps-5" id="userEmail" sec:authentication="email"></span></div>
+              <div>邮&emsp;箱:<span class="ps-5" id="userEmail" sec:authentication="principal.user.email"></span></div>
             </div>
             <div><button class="btn btn-primary" id="addBlogButton">发布一篇博客</button></div>
           </div>
