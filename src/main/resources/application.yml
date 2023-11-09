@@ -20,8 +20,8 @@ my:
   admin:
     admin-page-content-list:
       - name: 'dashboard'
-        description: "dashboard's description"
-        data : 'dont know'
+        description: "/admin/dashboard"
+        data : 'tachometer-alt'
       - name: 'users'
-        description: "/backend/users"
+        description: "/admin/users"
         data: 'users'
