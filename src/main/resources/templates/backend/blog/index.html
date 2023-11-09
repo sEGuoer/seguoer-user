@@ -23,7 +23,8 @@
                                     <thead>
                                     <tr>
                                         <th>
-                                            <input name="delete" id="toggle_checkbox" type="checkbox" onClick="toggle_checkbox()" />
+                                            <input name="delete" id="toggle_checkbox" type="checkbox"
+                                                   onClick="toggle_checkbox()"/>
                                         </th>
                                         <th>ID</th>
                                         <th>Title</th>
@@ -35,7 +36,8 @@
                                     </thead>
                                     <tbody>
                                     <tr th:each="post, stats:${page.getContent()}">
-                                        <td><input name="ids[]" type="checkbox" th:value="${post.id}" class="delete_checkbox"/></td>
+                                        <td><input name="ids[]" type="checkbox" th:value="${post.id}"
+                                                   class="delete_checkbox"/></td>
                                         <th th:text="${post.id}">post id</th>
                                         <td><a href="#" target="_blank" th:text="${post.title}">post tile</a></td>
                                         <td th:text="${post.status}">post status</td>
@@ -45,7 +47,7 @@
                                             <a href="#" class="text-sm">
                                                 Edit
                                             </a>
-                                            <a class="text-sm pl-2" href="#">
+                                            <a class="text-sm pl-2" href="#" onclick="do_delete()">
                                                 Remove
                                             </a>
                                         </td>
@@ -55,7 +57,8 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-default" onclick="batch_delete();">Batch Delete</button>
+                                <button type="submit" class="btn btn-default" onclick="batch_delete();">Batch Delete
+                                </button>
                             </div>
                         </div>
                         <!-- /.card -->
@@ -88,6 +91,9 @@
     }
 
     function do_delete(ids) {
-        console.log(ids);
+        let x = confirm("Are you sure you want to delete?");
+        if (x) {
+            console.log("u")
+        }
     }
 </script>
