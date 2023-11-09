@@ -1,6 +1,7 @@
 package com.seguo.controller;
 
 
+import com.seguo.dto.PostDto;
 import com.seguo.entity.Post;
 import com.seguo.service.PostService;
 import jakarta.validation.Valid;
@@ -34,5 +35,15 @@ public class PostController {
     String create(Model model) {
         model.addAttribute("post", new Post());
         return "backend/blog/create";
+    }
+
+    @PostMapping("blog/create")
+    String store(@Valid @ModelAttribute("post") PostDto postDto,
+                 BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            return "backend/blog/create";
+        }
+        postService.savePost(postDto);
+        return "redirect:/admin/blogs";
     }
 }
