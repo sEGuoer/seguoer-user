@@ -48,13 +48,7 @@ public class PostController {
     String uploadBasePath;
     @Value("${custom.upload.post-cover-dir-under-base-path}")
     String postCoverDirUnderBasePath;
-    @PostMapping("blog/create")
-    String store(@RequestParam(value = "coverFile",required = false) MultipartFile file, @Valid @ModelAttribute("post") PostDto postDto,
-                 BindingResult result, Model model) throws IOException {
-        if (result.hasErrors()) {
-            return "backend/blog/create";
-        }
-
+    private void doPostCover(MultipartFile file, PostDto postDto) throws IOException {
         if (!(file == null) &&!file.isEmpty()) {
             File dir = new File(uploadBasePath + File.separator + postCoverDirUnderBasePath);
             if (!dir.exists()) {
@@ -67,6 +61,14 @@ public class PostController {
             file.transferTo(new File(dir.getAbsolutePath() + File.separator + newFilename));
             postDto.setCover("/" + postCoverDirUnderBasePath + File.separator + newFilename);
         }
+    }
+        @PostMapping("blog/create")
+    String store(@RequestParam(value = "coverFile",required = false) MultipartFile file, @Valid @ModelAttribute("post") PostDto postDto,
+                 BindingResult result, Model model) throws IOException {
+        if (result.hasErrors()) {
+            return "backend/blog/create";
+        }
+        doPostCover(file,postDto);
 
         postService.savePost(postDto);
         return "redirect:/admin/blogs";
@@ -86,11 +88,12 @@ public class PostController {
 
     @PutMapping("blog/update")
     @PreAuthorize("#postDto.user_id == authentication.principal.user")
-    String update(@Valid @ModelAttribute("post") PostDto postDto, BindingResult result, Model model) {
+    String update(@RequestParam(value = "coverFile", required = false) MultipartFile file, @Valid @ModelAttribute("post") PostDto postDto, BindingResult result, Model model) throws IOException {
         if (result.hasErrors()) {
             model.addAttribute("post", postDto);
             return "backend/blog/edit";
         }
+        doPostCover(file,postDto);
 
         postService.savePost(postDto);
 
