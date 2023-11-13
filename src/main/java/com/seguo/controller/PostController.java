@@ -65,7 +65,7 @@ public class PostController {
             String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
             String newFilename = UUID.randomUUID() + suffix;
             file.transferTo(new File(dir.getAbsolutePath() + File.separator + newFilename));
-            postDto.setCover(postCoverDirUnderBasePath + File.separator + newFilename);
+            postDto.setCover("/" + postCoverDirUnderBasePath + File.separator + newFilename);
         }
 
         postService.savePost(postDto);
