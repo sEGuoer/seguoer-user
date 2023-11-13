@@ -42,6 +42,10 @@ public class PostServiceImpl implements PostService {
         post.setUser(new User(postDto.getUser_id()));
         postRepository.save(post);
     }
+    @Override
+    public void destroy(Long id) {
+        this.postRepository.deleteById(id);
+    }
 
     @Override
     public Optional<Post> findById(Long id) {

@@ -47,8 +47,11 @@
                                             <a href="#" class="text-sm">
                                                 Edit
                                             </a>
-                                            <a class="text-sm pl-2" href="#" onclick="do_delete()" th:name="${post.title}">
+                                            <a class="text-sm pl-2" href="#" th:href="@{'/backend/post/destroy/' + ${post.id}}"
+                                               th:onclick="|event.preventDefault(); if(confirm('Are you sure you want to Remove?')) document.getElementById('destroy-form-${post.id}').submit();|">
                                                 Remove
+                                                <form th:id="${'destroy-form-' + post.id}" th:action="@{'/backend/post/destroy/' + ${post.id}}" th:method="delete" style="display: none;">
+                                                </form>
                                             </a>
                                         </td>
                                     </tr>

@@ -14,5 +14,5 @@ public interface PostService {
 
     Optional<Post> findById(Long id);
 
-
+    void destroy(Long id);
 }

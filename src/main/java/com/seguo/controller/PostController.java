@@ -95,4 +95,10 @@ public class PostController {
 
         return "redirect:/admin/blogs";
     }
+
+    @DeleteMapping("blog/destroy/{id}")
+    String destroy(@PathVariable Long id) {
+        postService.destroy(id);
+        return "redirect:/admin/blogs";
+    }
 }
