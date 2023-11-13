@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -26,10 +27,17 @@ public class PostServiceImpl implements PostService {
     @Override
     public void savePost(PostDto postDto) {
         Post post = new Post();
-        post.setId(postDto.getId());
+
+        if (postDto.getId() != null) {
+            post = postRepository.findById(postDto.getId()).get();
+            post.setUpdated_at(LocalDateTime.now());
+        } else {
+            post.setCreated_at(LocalDateTime.now());
+        }
         post.setTitle(postDto.getTitle());
         post.setContent(postDto.getContent());
         post.setDescription(postDto.getDescription());
+        post.setStatus(postDto.isStatus());
         post.setCover(postDto.getCover());
         post.setUser(new User(postDto.getUser_id()));
         postRepository.save(post);

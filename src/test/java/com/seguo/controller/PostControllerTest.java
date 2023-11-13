@@ -98,4 +98,71 @@ class PostControllerTest extends WithMockUserForAdminBaseTest {
 
         postRepository.delete(po.get());
     }
+
+    @Test
+    void update(@Autowired PostRepository postRepository) throws Exception {
+        String title = "title-" + UUID.randomUUID();
+        mvc.perform(MockMvcRequestBuilders.post("/admin/blog/create")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                        .param("id", "")
+                        .param("user_id", "1")
+                        .param("title", title)
+                        .param("content", "content-" + UUID.randomUUID())
+                )
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/admin/blogs"))
+        ;
+        Optional<Post> po = postRepository.findFirstByTitle(title);
+        Assertions.assertTrue(po.isPresent());
+        Post post = po.get();
+
+        String descriptionUpdated = "description--updated";
+        String contendUpdated = post.getContent() + "--updated";
+        mvc.perform(MockMvcRequestBuilders.put("/admin/blog/update")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                        .param("id", post.getId().toString())
+                        .param("title", post.getTitle())
+                        .param("user_id", "1")
+                        .param("description", descriptionUpdated)
+                        .param("content", contendUpdated)
+                )
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/admin/blogs"))
+        ;
+
+        Post postUpdated = postRepository.findFirstByTitle(title).get();
+        Assertions.assertEquals(descriptionUpdated, postUpdated.getDescription());
+        Assertions.assertEquals(contendUpdated, postUpdated.getContent());
+
+        postRepository.delete(po.get());
+    }
+    @Test
+    void updatePostThatNotMyOwn(@Autowired PostRepository postRepository) throws Exception {
+        String title = "title-" + UUID.randomUUID();
+        String authorId = "3";
+        mvc.perform(MockMvcRequestBuilders.post("/admin/blog/create")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                        .param("id", "")
+                        .param("user_id", authorId)
+                        .param("title", title)
+                        .param("content", "content-" + UUID.randomUUID())
+                )
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/admin/blogs"))
+        ;
+        Optional<Post> po = postRepository.findFirstByTitle(title);
+        Assertions.assertTrue(po.isPresent());
+        Post post = po.get();
+        String descriptionUpdated = "description--updated";
+        String contendUpdated = post.getContent() + "--updated";
+        mvc.perform(MockMvcRequestBuilders.put("/admin/blog/update")
+                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                        .param("id", post.getId().toString())
+                        .param("title", post.getTitle())
+                        .param("user_id", authorId)
+                        .param("description", descriptionUpdated)
+                        .param("content", contendUpdated)
+                )
+                .andExpect(MockMvcResultMatchers.status().isForbidden())
+        ;
+
+        postRepository.delete(po.get());
+    }
 }
