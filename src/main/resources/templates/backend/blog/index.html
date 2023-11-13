@@ -47,7 +47,7 @@
                                             <a href="#" class="text-sm">
                                                 Edit
                                             </a>
-                                            <a class="text-sm pl-2" href="#" onclick="do_delete()">
+                                            <a class="text-sm pl-2" href="#" onclick="do_delete()" th:name="${post.title}">
                                                 Remove
                                             </a>
                                         </td>
@@ -91,6 +91,8 @@
     }
 
     function do_delete(ids) {
+        let deleteBlogTitle = event.target.name
+        console.log(deleteBlogTitle)
         let x = confirm("Are you sure you want to delete?");
         if (x) {
             console.log("u")
