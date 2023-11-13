@@ -11,6 +11,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PostServiceImpl implements PostService {
     @Autowired
@@ -24,11 +26,17 @@ public class PostServiceImpl implements PostService {
     @Override
     public void savePost(PostDto postDto) {
         Post post = new Post();
+        post.setId(postDto.getId());
         post.setTitle(postDto.getTitle());
         post.setContent(postDto.getContent());
         post.setDescription(postDto.getDescription());
         post.setCover(postDto.getCover());
         post.setUser(new User(postDto.getUser_id()));
         postRepository.save(post);
+    }
+
+    @Override
+    public Optional<Post> findById(Long id) {
+        return this.postRepository.findById(id);
     }
 }

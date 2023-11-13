@@ -3,6 +3,7 @@ package com.seguo.controller;
 
 import com.seguo.dto.PostDto;
 import com.seguo.entity.Post;
+import com.seguo.exception.PostNotFoundException;
 import com.seguo.service.PostService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,30 @@ public class PostController {
         }
 
         postService.savePost(postDto);
+        return "redirect:/admin/blogs";
+    }
+
+    @GetMapping("blog/edit/{id}")
+    String edit(@PathVariable Long id, Model model) {
+        Optional<Post> optionalPost = postService.findById(id);
+        if (optionalPost.isEmpty()) {
+            throw new PostNotFoundException();
+        } else {
+            Post post = optionalPost.get();
+            model.addAttribute("post", post);
+            return "backend/blog/edit";
+        }
+    }
+
+    @PutMapping("blog/update")
+    String update(@Valid @ModelAttribute("post") PostDto postDto, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("post", postDto);
+            return "backend/blog/edit";
+        }
+
+        postService.savePost(postDto);
+
         return "redirect:/admin/blogs";
     }
 }
