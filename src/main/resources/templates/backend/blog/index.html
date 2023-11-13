@@ -44,7 +44,7 @@
                                         <td th:text="${post.type}">post type</td>
                                         <td th:text="${post.created_at}">post created_at</td>
                                         <td class="center">
-                                            <a href="#" class="text-sm">
+                                            <a th:href="@{'/admin/blog/edit/' + ${post.id}}" class="text-sm">
                                                 Edit
                                             </a>
                                             <a class="text-sm pl-2" href="#" th:href="@{'/backend/post/destroy/' + ${post.id}}"

@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <form id="post-form" method="post" action="#" th:action="@{/backend/post/update}" enctype="multipart/form-data" th:object="${post}">
+              <form id="post-form" method="post" action="#" th:action="@{/admin/blog/update}" enctype="multipart/form-data" th:object="${post}">
                 <input type="hidden" name="_method" value="PUT">
                 <div th:replace="~{fragment :: #post-form-items}"></div>
                 <div class="card-footer">
