@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -50,5 +51,10 @@ public class PostServiceImpl implements PostService {
     @Override
     public Optional<Post> findById(Long id) {
         return this.postRepository.findById(id);
+    }
+
+    @Override
+    public void destroyAllById(List<Long> ids) {
+        this.postRepository.deleteAllById(ids);
     }
 }
