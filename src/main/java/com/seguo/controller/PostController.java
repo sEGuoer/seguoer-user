@@ -87,7 +87,7 @@ public class PostController {
     }
 
     @PutMapping("blog/update")
-    @PreAuthorize("#postDto.user_id == authentication.principal.user")
+    @PreAuthorize("#postDto.user_id == authentication.principal.user.id")
     String update(@RequestParam(value = "coverFile", required = false) MultipartFile file, @Valid @ModelAttribute("post") PostDto postDto, BindingResult result, Model model) throws IOException {
         if (result.hasErrors()) {
             model.addAttribute("post", postDto);
