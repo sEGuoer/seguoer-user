@@ -1,4 +1,4 @@
-package com.seguo.controller;
+package com.seguo.controller.admin;
 
 
 import org.springframework.beans.factory.annotation.Value;

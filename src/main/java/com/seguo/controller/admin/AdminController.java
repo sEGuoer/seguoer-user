@@ -1,4 +1,4 @@
-package com.seguo.controller;
+package com.seguo.controller.admin;
 
 import com.seguo.entity.User;
 import com.seguo.po.AdminPageContent;
