@@ -3,11 +3,14 @@ package com.seguo.entity;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
 @Entity
 @DynamicUpdate
 public class Post {
@@ -43,5 +46,5 @@ public class Post {
             fetch = FetchType.LAZY
     )
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    User user;
+    User  user;
 }
