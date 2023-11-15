@@ -65,4 +65,9 @@ public class PostServiceImpl implements PostService {
         return this.postRepository.findAllByType("post", pageable);
     }
 
+    @Override
+    public Page<Post> findAllResources(int pageNumber, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber - 1, pageSize, Sort.by("id").descending());
+        return this.postRepository.findAllByType("resource", pageable);
+    }
 }
