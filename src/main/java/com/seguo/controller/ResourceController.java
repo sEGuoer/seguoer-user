@@ -36,7 +36,7 @@ public class ResourceController {
     String show(@PathVariable Long id, Model model) {
         Optional<Post> optionalPost = postService.findById(id);
 
-        if (optionalPost.isEmpty() || !optionalPost.get().isStatus()) {
+        if (optionalPost.isEmpty() || !optionalPost.get().isStatus() || !optionalPost.get().getType().equals("resource")) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
 

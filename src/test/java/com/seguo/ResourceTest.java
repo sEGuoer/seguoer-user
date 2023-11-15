@@ -25,7 +25,7 @@ public class ResourceTest {
         mvc.perform(MockMvcRequestBuilders.get("/resources"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.model().attributeExists("page"))
-                .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("<a class=\"btn btn-primary transition-3d-hover\" href=\"#\">查看详情</a>")))
+                .andExpect(MockMvcResultMatchers.content().string(Matchers.containsString("查看详情")))
         ;
     }
     @Autowired

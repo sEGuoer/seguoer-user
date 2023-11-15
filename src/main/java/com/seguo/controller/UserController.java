@@ -107,7 +107,6 @@ public class UserController {
     @GetMapping("do-password-reset")
     String showDoPasswordRestForm(@RequestParam(name = "token", required = false) String token, Model model) {
         PasswordResetToken passwordResetToken = passwordResetTokenService.findFirstByTokenOrderByIdDesc(token);
-        passwordResetTokenService.save(passwordResetToken);
         if (passwordResetToken == null) {
             model.addAttribute("error", "token 不存在");
         } else if (passwordResetToken.getExpirationDate().isBefore(LocalDateTime.now())) {

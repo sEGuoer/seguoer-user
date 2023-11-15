@@ -40,6 +40,7 @@ public class PostServiceImpl implements PostService {
         post.setContent(postDto.getContent());
         post.setDescription(postDto.getDescription());
         post.setStatus(postDto.isStatus());
+        post.setType(postDto.getType());
         post.setCover(postDto.getCover());
         post.setUser(new User(postDto.getUser_id()));
         postRepository.save(post);
