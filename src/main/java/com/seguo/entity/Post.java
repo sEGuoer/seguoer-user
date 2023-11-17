@@ -1,5 +1,6 @@
 package com.seguo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 @DynamicUpdate
 public class Post {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     String title;
@@ -40,11 +41,11 @@ public class Post {
     LocalDateTime updated_at;
     @Nullable
     LocalDateTime deleted_at;
-
+    @JsonIgnore
     @ManyToOne(
             targetEntity = User.class,
             fetch = FetchType.LAZY
     )
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    User  user;
+    User user;
 }
