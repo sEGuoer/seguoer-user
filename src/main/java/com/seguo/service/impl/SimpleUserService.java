@@ -1,5 +1,6 @@
 package com.seguo.service.impl;
 
+import com.seguo.dto.UserDto;
 import com.seguo.entity.User;
 import com.seguo.repository.UserRepository;
 import com.seguo.service.UserService;
@@ -35,6 +36,18 @@ public class SimpleUserService implements UserService {
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public void saveUser(UserDto userDto) {
+        User user = new User();
+        user.setName(userDto.getName());
+        user.setEmail(userDto.getEmail());
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setEnabled(true);
+        user.setCreatedAt(LocalDateTime.now());
+
+        userRepository.save(user);
     }
 
     @Override

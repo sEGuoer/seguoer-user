@@ -2,6 +2,7 @@ package com.seguo.controller;
 
 import com.seguo.dto.PasswordResetDto;
 import com.seguo.dto.PasswordResetEmailDto;
+import com.seguo.dto.UserDto;
 import com.seguo.entity.PasswordResetToken;
 import com.seguo.entity.User;
 import com.seguo.service.PasswordResetTokenService;
@@ -9,6 +10,7 @@ import com.seguo.service.UserService;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -31,16 +33,39 @@ import java.util.UUID;
 public class UserController {
     @Autowired
     UserService userService;
-
+    @GetMapping("register")
+    public String showRegistrationForm(Model model){
+        UserDto user = new UserDto();
+        model.addAttribute("user", user);
+        return "/register";
+    }
     @PostMapping
-    @ResponseBody
-    String addUser(String name, String email, String password) {
-        int result = userService.addNewUser(name, email, password);
-        if (result == 1) {
-            return "用户添加成功";
-        } else {
-            return "用户添加失败请返回重试";
+    String addUser(@Valid @ModelAttribute("user") UserDto userDto,
+                   BindingResult result,
+                   Model model,
+                   HttpServletRequest request) {
+        User existingUser = userService.findUserByEmail(userDto.getEmail());
+
+        if(existingUser != null && existingUser.getEmail() != null && !existingUser.getEmail().isEmpty()){
+            result.rejectValue("email", "exist", "该邮箱已被注册");
         }
+
+        if(result.hasErrors()){
+            model.addAttribute("user", userDto);
+            return "/register";
+        }
+
+        userService.saveUser(userDto);
+
+        // === === ===
+        try {
+            request.login(userDto.getEmail(), userDto.getPassword());
+        } catch (ServletException e) {
+            throw new RuntimeException(e);
+        }
+        // === === ===
+
+        return "redirect:/user/dashboard";
     }
 
     @GetMapping("dashboard")
