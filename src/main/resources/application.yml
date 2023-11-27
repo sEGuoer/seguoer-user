@@ -3,8 +3,9 @@ spring:
     name: lms
 
   datasource:
-    url: jdbc:mysql://localhost:3306/jpa?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://8.134.153.59:3306/blog?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=utf8
     username: root
+    password: Zcy520521
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
