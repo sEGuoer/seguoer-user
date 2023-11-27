@@ -33,12 +33,7 @@ import java.util.UUID;
 public class UserController {
     @Autowired
     UserService userService;
-    @GetMapping("register")
-    public String showRegistrationForm(Model model){
-        UserDto user = new UserDto();
-        model.addAttribute("user", user);
-        return "/register";
-    }
+
     @PostMapping
     String addUser(@Valid @ModelAttribute("user") UserDto userDto,
                    BindingResult result,

@@ -6,23 +6,22 @@
                     <div class="card-header">注册</div>
 
                     <div class="card-body">
-                        <form method="POST" action="user">
+                        <form method="POST" action="#" th:action="@{/user}" th:object="${user}">
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">账号</label>
+                                <label for="name" th:field="*{name}" class="col-md-4 col-form-label text-md-right">账号</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control " name="name" required
-                                            value="">
-
+                                    <input th:field="*{name}" id="name" type="text" class="form-control" th:class="|form-control ${#fields.hasErrors('name') ? 'is-invalid' : ''}|" name="name" required autocomplete="name" autofocus>
+                                    <span th:if="${#fields.hasErrors('name')}" class="invalid-feedback" role="alert"><strong th:errors = "*{name}"></strong></span>
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">邮箱</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control " name="email" required
-                                           autocomplete="email" value="">
-
+                                    <input th:field="*{email}" id="email" type="email" class="form-control" th:class="|form-control ${#fields.hasErrors('email') ? 'is-invalid' : ''}|" name="email" required autocomplete="email">
+                                    <span th:if="${#fields.hasErrors('email')}" class="invalid-feedback" role="alert"><strong th:errors = "*{email}"></strong></span>
                                 </div>
                             </div>
 
@@ -30,9 +29,8 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right">密码</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control " name="password" required
-                                           autocomplete="password" value="">
-
+                                    <input th:field="*{password}" id="password" type="password" class="form-control" th:class="|form-control ${#fields.hasErrors('password') ? 'is-invalid' : ''}|" name="password" required autocomplete="password">
+                                    <span th:if="${#fields.hasErrors('password')}" class="invalid-feedback" role="alert"><strong th:errors = "*{password}"></strong></span>
                                 </div>
                             </div>
 

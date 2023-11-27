@@ -1,5 +1,6 @@
 package com.seguo.controller;
 
+import com.seguo.dto.UserDto;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,8 +25,10 @@ public class HomepageController {
         return "login";
     }
     @GetMapping("register")
-    String register() {
-        return "register";
+    public String showRegistrationForm(Model model){
+        UserDto user = new UserDto();
+        model.addAttribute("user", user);
+        return "/register";
     }
     @Autowired
     private JavaMailSender sender;

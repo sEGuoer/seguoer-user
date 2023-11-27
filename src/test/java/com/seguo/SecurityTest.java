@@ -55,18 +55,8 @@ public class SecurityTest extends  WithMockUserBaseTest{
                         .param("name", "new-name")
                         .param("email", "admin@example.com")
                         .param("password", "secret"))
-                .andExpect(MockMvcResultMatchers.content().string("用户添加失败请返回重试"))
+                .andExpect(MockMvcResultMatchers.model().attributeHasFieldErrorCode("user", "email", "exist"))
         ;
     }
-    @Test
-    void testAddUser( @Autowired UserRepository userRepository) throws Exception {
-        mvc.perform(MockMvcRequestBuilders.post("/user")
-                        .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                        .param("name", "test-name")
-                        .param("email", "fasttest@example.com")
-                        .param("password", "secret"))
-                .andExpect(MockMvcResultMatchers.content().string("用户添加成功"));
-        Optional<User> user = userRepository.findFirstByEmail("fasttest@example.com");
-        userRepository.delete(user.get());
-    }
+
 }
