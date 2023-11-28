@@ -28,7 +28,7 @@ public class HomepageController {
     public String showRegistrationForm(Model model){
         UserDto user = new UserDto();
         model.addAttribute("user", user);
-        return "/register";
+        return "register";
     }
     @Autowired
     private JavaMailSender sender;
