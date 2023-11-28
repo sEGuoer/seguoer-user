@@ -32,7 +32,7 @@ public class HomepageController {
     }
     @Autowired
     private JavaMailSender sender;
-    @GetMapping("/send-mail")
+    @GetMapping("send-mail")
     @ResponseBody
     public String send() throws MessagingException, UnsupportedEncodingException {
         MimeMessage message = sender.createMimeMessage();
