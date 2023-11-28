@@ -30,7 +30,7 @@ public class AdminController {
                  @RequestParam("page") Optional<Integer> page,
                  @RequestParam("size") Optional<Integer> size) {
         int currentPage = page.orElse(1);
-        int pageSize = size.orElse(2);
+        int pageSize = size.orElse(7);
         Page<User> pageContent = userService.findAll(currentPage, pageSize);
         model.addAttribute("page", pageContent);
         return "backend/user/index";
