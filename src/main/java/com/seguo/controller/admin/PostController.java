@@ -93,8 +93,11 @@ public class PostController {
             model.addAttribute("post", postDto);
             return "backend/blog/edit";
         }
-        doPostCover(file,postDto);
-
+        if (file.isEmpty()){
+            postDto.setCover(postService.findById(postDto.getId()).get().getCover());
+        }else {
+            doPostCover(file,postDto);
+        }
         postService.savePost(postDto);
 
         return "redirect:/admin/blogs";
