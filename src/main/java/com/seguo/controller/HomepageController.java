@@ -20,6 +20,10 @@ public class HomepageController {
     String index() {
         return "index";
     }
+    @GetMapping("game/deployment")
+    String gameDeployment() {
+        return "/game/deployment/show";
+    }
     @GetMapping("login")
     String login() {
         return "login";
