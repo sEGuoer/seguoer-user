@@ -27,7 +27,7 @@ public class ImageController {
 
         for (MultipartFile image : images) {
             if (!image.isEmpty()) {
-                File dir = new File(uploadBasePath + File.separator + fromVditorDirUnderBasePath);
+                File dir = new File(uploadBasePath + "/" + fromVditorDirUnderBasePath);
                 if (!dir.exists()) {
                     dir.mkdirs();
                 }
@@ -42,7 +42,7 @@ public class ImageController {
                     errorFiles.add(originalFilename);
                 }
 
-                imageMap.put(originalFilename, "/" + fromVditorDirUnderBasePath + File.separator + newFilename);
+                imageMap.put(originalFilename, "/" + fromVditorDirUnderBasePath + "/" + newFilename);
             }
         }
 
