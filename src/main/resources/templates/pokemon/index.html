@@ -1,22 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<style>
-    body{
-        background-image: url("pikachu.webp");
-        background-size: 100%;
-    }
-    @media (max-width: 768px) {
-        body {
-            background-image: url("kabe.png");
-            background-size: cover;
-        }
-    }
-</style>
-<body>
+<div th:replace="~{ app :: layout ('PokemonHome Page', ~{::#css}, ~{::#main_content}, _) }"
+     xmlns:th="http://www.thymeleaf.org">
 
-</body>
-</html>
+    <div id="css">
+        <style>
+            #main_content {
+                background-image: url("/img/pokemon/img.png");
+                background-size: cover;
+            }
+            @media (max-width: 768px) {
+                #main_content {
+                    background-image: url("/img/pokemon/kabe.png");
+                    background-size: cover;
+                }
+            }
+        </style>
+    </div>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center" id="main_content">
+        <div class="mb-auto"></div>
+        <div class="p-3">
+            <h1>过儿的宝可梦</h1>
+            <p class="lead">大概是因为喜欢宝可梦，而且自己也有一个"宝可梦"，所以想在这里更进一步</p>
+            <p class="lead">
+                <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
+            </p>
+        </div>
+        <div class="mt-auto text-white-50"></div>
+    </div>
+
+</div>

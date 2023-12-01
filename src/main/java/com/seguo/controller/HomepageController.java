@@ -30,6 +30,10 @@ public class HomepageController {
         model.addAttribute("user", user);
         return "register";
     }
+    @GetMapping("pokemon/index")
+    public String pkmIndex(){
+        return "pokemon/index";
+    }
     @Autowired
     private JavaMailSender sender;
     @GetMapping("send-mail")
