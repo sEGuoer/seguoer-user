@@ -22,7 +22,7 @@ public class HomepageController {
     }
     @GetMapping("game/deployment")
     String gameDeployment() {
-        return "/game/deployment/show";
+        return "game/deployment/show";
     }
     @GetMapping("login")
     String login() {
