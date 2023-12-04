@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="../static/build/assets/app.css" th:href="@{/build/assets/app.css}" />
+    <style>
+        body{
+            background: #eee;
+        }
+        .containers {
+            max-width: 1000px;
+            background: #eee;
+            margin: 0px auto;
+            padding: 40px;
+            padding-bottom: 50px;
+        }
+        @media (max-width:768px) {
+
+            .containers {
+                background: white;
+                padding: 0;
+            }
+        }
+        .lbox {
+            margin: 30px;
+            padding: 10px;
+        }
+
+        .lbox.row {
+            padding: 8px 0px;
+        }
+
+        .progress {
+            margin-top: 5px;
+        }
+
+        .rbox {
+            margin: 30px;
+        }
+
+        .rbox h4 {
+            padding-bottom: 5px;
+            color: #17a2b8;
+            border-bottom: 1px solid #17a2b8
+        }
+    </style>
+</head>
+
+<body>
+<div class="containers">
+    <div class="row">
+        <div class="col-sm-4 bg-info text-white left">
+            <div class="lbok">
+                <img src="../static/img/Cache_247709949bd616a9..jpg" class="img-fluid d-block m-auto" />
+            </div>
+            <div class="lbox">
+                <p><i class="fa fa-user-o"></i>&nbsp;&nbsp;年龄: 22</p>
+                <p><i class="fa fa-id-card"></i>&nbsp;&nbsp;当前学历：本科</p>
+                <p><i class="fa fa-user-circle-o"></i>&nbsp;&nbsp;政治面貌: 团员</p>
+                <p><i class="fa fa-wrench"></i>&nbsp;&nbsp;专业: 数学与应用数学</p>
+                <p><i class="fa fa-university"></i>&nbsp;&nbsp;学校: 集美大学理学院</p>
+                <p><i class="fa fa-phone"></i>&nbsp;&nbsp;联系电话 : 15759259521</p>
+                <p><i class="fa fa-envelope-o"></i>&nbsp;&nbsp;邮箱: 709074535@qq.com</p>
+            </div>
+            <div class="lbox">
+                <h4>技能特长</h4>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span>JAVA</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-success progress-bar-animated"
+                                 style="width: 70%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span>Spring</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-info progress-bar-animated"
+                                 style="width: 60%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span>sql</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-primary progress-bar-animated"
+                                 style="width: 50%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span>font&nbsp;end</span>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped bg-secondary progress-bar-animated"
+                                 style="width: 40%;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8 border right bg-white">
+            <div class="rbox">
+                <h3>赵晨懿</h3>
+                <p></p>
+            </div>
+            <div class="rbox">
+                <h4>求职意向</h4>
+                <p>java工程师</p>
+            </div>
+            <div class="rbox">
+                <h4>教育背景</h4>
+                <p>2019.9-至今&nbsp;&nbsp;集美大学——数学与应用数学专业</p>
+            </div>
+            <div class="rbox">
+                <h4>工作经验</h4>
+                <p>2023.7-2023.12&nbsp;&nbsp;互联网科技公司&nbsp;&nbsp;java练习生</p>
+                <p></p>
+                <p>工作描述</p>
+                <ul>
+                    <li>搭建属于自己的个人网站<a class="feature-title" href="index"></a>，博客系统框架构建并实现后台页面管理</li>
+                    <li>实现了客户添加、客户修改、客户删除、批量删除客户、分页等几大功能；</li>
+                    <li>分别用到JavaScript、jQuery等开发技术,现几大功能运行稳定,运算速度明显变快;</li>
+                </ul>
+            </div>
+            <div class="rbox">
+                <h4>自我评价</h4>
+                <ol>
+                    <li>关注前端前沿技术,基本功扎实,熟悉应用jQuery,熟悉HTML5、CSS3等;</li>
+                    <li>熟悉应用常见的前端框架并掌握其原理，有组件化的思想，担当且创新；</li>
+                    <li>较强的学习能力和适应能力，良好的独立分析解决问题能力和逻辑分析思维；</li>
+                    <li>良好的团队沟通协作和服务意识，较强的工作执行力和抗压能力，愿与公司一同发展</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
