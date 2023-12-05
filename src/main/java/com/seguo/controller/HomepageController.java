@@ -28,7 +28,7 @@ public class HomepageController {
     String login() {
         return "login";
     }
-    @GetMapping("login")
+    @GetMapping("resume")
     String resume() {
         return "resume";
     }
