@@ -93,8 +93,9 @@ public class PostController {
             model.addAttribute("post", postDto);
             return "backend/blog/edit";
         }
-        if (file.isEmpty()){
-            postDto.setCover(postService.findById(postDto.getId()).get().getCover());
+        if (file == null || file.isEmpty()){
+            String cover = postService.findById(postDto.getId()).get().getCover();
+                postDto.setCover(cover);
         }else {
             doPostCover(file,postDto);
         }
