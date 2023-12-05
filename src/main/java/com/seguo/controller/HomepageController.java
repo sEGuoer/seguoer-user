@@ -28,6 +28,10 @@ public class HomepageController {
     String login() {
         return "login";
     }
+    @GetMapping("login")
+    String resume() {
+        return "resume";
+    }
     @GetMapping("register")
     public String showRegistrationForm(Model model){
         UserDto user = new UserDto();
