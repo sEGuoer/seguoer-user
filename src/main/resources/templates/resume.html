@@ -6,6 +6,9 @@
     <title>赵晨懿的简历</title>
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta property="og:title" th:content="|赵晨懿的${requestURI !=null && #strings.startsWith(requestURI, '/resume') ? '简历' : '个人网站'}|" />
+    <meta property="og:description" content="赵晨懿的简历" />
+    <meta property="og:image" content="../static/img/about/short_logo - 副本.png" th:content="|/img/about/short_logo - 副本.png|"/>
     <link rel="stylesheet" href="../static/build/assets/app.css" th:href="@{/build/assets/app.css}" />
     <style>
         body{

@@ -1,4 +1,4 @@
-<div th:replace="~{ app :: layout ('过儿的主页', _, ~{::#main_content}, _) }" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{ app :: layout ('赵晨懿的主页', _, ~{::#main_content}, _) }" xmlns:th="http://www.thymeleaf.org">
     <div class="features" id="main_content">
         <div class="feature">
             <div class="container">
@@ -14,7 +14,7 @@
                     </div>
                     <div class="col-lg-6 mt-3 mt-lg-0">
                         <div class="text-center" data-aos="zoom-in">
-                            <img class="img-fluid shadow" src="../static/img/about/resume.png" th:src="@{/img/about/resume.png}" alt="coding">
+                            <img class="img-fluid shadow rounded" src="../static/img/about/resume.png" th:src="@{/img/about/resume.png}" alt="coding">
                         </div>
                     </div>
                 </div>
@@ -40,22 +40,6 @@
         <div class="feature">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 text-center text-lg-right order-1 order-lg-2 align-self-center">
-                        <a class="feature-title h3" href="#" th:href="@{/blogs}">博客</a>
-                        <p class="lead text-muted">我的文章</p>
-                    </div>
-                    <div class="col-lg-6 mt-3 mt-lg-0 order-2 order-lg-1">
-                        <div class="text-center" data-aos="zoom-in">
-                            <img class="img-fluid shadow" src="../static/img/about/img.png" th:src="@{/img/about/img.png}" alt="design">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="feature">
-            <div class="container">
-                <div class="row">
                     <div class="col-lg-6 text-center text-lg-left align-self-center">
                         <a class="feature-title h3" href="#" th:href="@{https://github.com/sEGuoer}">Github主页</a>
                         <p class="lead text-muted">seguoer的 github 主页</p>
@@ -68,16 +52,17 @@
                 </div>
             </div>
         </div>
+
         <div class="feature">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 text-center text-lg-right order-1 order-lg-2 align-self-center">
-                        <a class="feature-title" href="https://seguoer.github.io/plugInForBilibiliReadingTime/">Bilibili阅读时间统计插件</a>
-                        <p class="lead text-muted">适配于分P和合集情况下得知总用时和剩余用时的插件</p>
+                        <a class="feature-title h3" href="#" th:href="@{/blogs}">博客</a>
+                        <p class="lead text-muted">我的文章</p>
                     </div>
                     <div class="col-lg-6 mt-3 mt-lg-0 order-2 order-lg-1">
                         <div class="text-center" data-aos="zoom-in">
-                            <img class="img-fluid shadow" src="../static/img/about/QQ截图20230808165006.png" th:src="@{/img/about/QQ截图20230808165006.png}" alt="life">
+                            <img class="img-fluid shadow" src="../static/img/about/img.png" th:src="@{/img/about/img.png}" alt="design">
                         </div>
                     </div>
                 </div>
@@ -99,6 +84,23 @@
                 </div>
             </div>
         </div>
+
+        <div class="feature">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-right order-1 order-lg-2 align-self-center">
+                        <a class="feature-title" href="https://seguoer.github.io/plugInForBilibiliReadingTime/">Bilibili阅读时间统计插件</a>
+                        <p class="lead text-muted">适配于分P和合集情况下得知总用时和剩余用时的插件</p>
+                    </div>
+                    <div class="col-lg-6 mt-3 mt-lg-0 order-2 order-lg-1">
+                        <div class="text-center" data-aos="zoom-in">
+                            <img class="img-fluid shadow" src="../static/img/about/QQ截图20230808165006.png" th:src="@{/img/about/QQ截图20230808165006.png}" alt="life">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 </div>
