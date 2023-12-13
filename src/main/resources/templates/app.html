@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title th:text="${title}">app</title>
     <meta property="og:title" th:content="|赵晨懿的${requestURI !=null && #strings.startsWith(requestURI, '/resume') ? '简历' : '个人网站'}|" />
-    <meta property="og:description" content="赵晨懿的个人网站，用于记录开发和学习过程，并分享一些博客等。" />
-    <meta property="og:image" content="../static/img/about/short_logo - 副本.png" th:content="|/img/about/short_logo - 副本.png|"/>
+    <meta property="og:description" content="用于个人记录开发和学习过程，并分享一些个人认为有价值的博客内容，资源等。" />
+    <meta property="og:image" content="../static/img/about/short_logo_ge.png" th:content="|https://auefly-video.oss-cn-guangzhou.aliyuncs.com/img/short_logo_ge.png|"/>
     <th:block th:replace="${css}" />
-    <link rel="shortcut icon" href="../static/img/about/short_logo - 副本.png" th:href="@{/img/about/short_logo - 副本.png}">
+    <link rel="shortcut icon" href="../static/img/about/short_logo_ge.png" th:href="@{/img/about/short_logo_ge.png}">
     <link rel="stylesheet" href="../static/build/assets/app.css" th:href="@{/build/assets/app.css}" />
 </head>
 <body class="d-flex flex-column h-100">

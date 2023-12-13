@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <title>赵晨懿的简历</title>
     <meta name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta property="og:title" th:content="|赵晨懿的${requestURI !=null && #strings.startsWith(requestURI, '/resume') ? '简历' : '个人网站'}|" />
-    <meta property="og:description" content="赵晨懿的简历" />
-    <meta property="og:image" content="../static/img/about/short_logo - 副本.png" th:content="|/img/about/short_logo - 副本.png|"/>
+    <meta property="og:description" content="简历" />
+    <meta property="og:image" content="../static/img/about/short_logo_ge.png" th:content="|https://auefly-video.oss-cn-guangzhou.aliyuncs.com/img/short_logo_ge.png|"/>
+    <link rel="shortcut icon" href="../static/img/about/short_logo_ge.png" th:href="@{/img/about/short_logo_ge.png}">
     <link rel="stylesheet" href="../static/build/assets/app.css" th:href="@{/build/assets/app.css}" />
     <style>
         body{
@@ -154,8 +155,12 @@
                 <p></p>
                 <p>项目描述</p>
                 <ul>
-                    <li><a class="feature-title font-weight-bold" href="http://www.seguoer.com">个人网站：</a>搭建属于自己的个人网站"<a href="http://www.seguoer.com">过儿：www.seguoer.com</a>"，博客系统框架构建并实现后台页面管理</li>
-                    <li><span class="feature-title font-weight-bold">各种项目：</span>详见<a class="feature-title" href="https://github.com/sEGuoer">Github</a>，如校对系统，对文章分块，并且对文章的每个章节都有对应的自动翻译功能，并且实现对文章每层的增删改查与后台管控</li>
+                    <li><a class="feature-title font-weight-bold" href="http://www.seguoer.com">个人网站：</a>搭建属于自己的个人网站"<a href="http://www.seguoer.com">过儿：www.seguoer.com</a>"，文章系统框架构建并实现后台页面管理以及对自己的笔记和博客记录的功能</li>
+                    <li><span class="feature-title font-weight-bold">AI双语校对系统：</span>详见<a class="feature-title" href="https://github.com/sEGuoer">Github</a>，机器翻译 + ChatGPT自动润色 + 人工精确校对。帮助有出海需求的商家或企业快速输出产品文案及其他翻译、校对需求。
+                        支持将长文本自动切分成多个翻译区块，方便多人协作翻译及多人协作校对。</li>
+                    <li><span class="feature-title font-weight-bold">LMS在线学习系统：</span><a class="feature-title" href="https://github.com/sEGuoer"></a>国贸高新数字经济产教融合实训基地真实在用系统。
+                        基地授课老师可以上传所有授课视频和文档资源，各班级的学生可以查看老师分享并授权的所有资源。
+                        综合应用SpringBoot体系下的主流企业级技术栈，注重系统架构的可伸缩性设计，方便需求变更之后的快速响应。</li>
                     <li><span class="feature-title font-weight-bold"><a class="feature-title" href="https://seguoer.github.io/plugInForBilibiliReadingTime/">时间计时插件</a>与<a class="feature-title" href="#service" th:href="@{/blogs/10}" id="service">游戏服务器搭建</a>：
                     </span>插件可以显示统计所有分P或合集总时长与剩余总时常；通过linux基本命令在云服务器上搭建自己的游戏service
                     </li>
